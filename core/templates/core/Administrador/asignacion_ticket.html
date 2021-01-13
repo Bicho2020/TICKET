@@ -1,0 +1,73 @@
+{% extends 'core/BaseAdministrador.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="col-xl-12 col-lg-12">
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">GESTIÓN DE ESTADOS</h6>
+            <div class="dropdown no-arrow">
+
+
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <button onclick="AgregarFilas()" class="btn btn-default  float-right mb-4" ><i style="font-size: 30px;" class="  text-primary fas fa-plus-circle"></i> </button>
+
+
+            <table id="TablaEstados" class="table border table-striped  text-center ">
+
+                <thead>
+
+                  <tr>
+
+                    <th scope="col">Código estado</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Operación</th>
+                    <th scope="col">Código sap</th>
+                    <th scope="col">Enviar correo</th>
+                    <th scope="col">Es escalable</th>
+                    <th scope="col">Eliminar</th>
+
+                  </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td> <input type="text" value="1" disabled class="form-control">  </td>
+                        <td> <input  type="text"  class="form-control">  </td>
+                        <td>
+                            <select disabled class="form-control" > 
+                                <option hidden value="5" >CREACIÓN TICKET</option>
+                            </select> 
+                        </td>
+                        <td> <input  type="text"  class="form-control"></td>
+                        <td> <input disabled style="height: 25px; " type="checkbox" class="form-check-input" checked> </td>
+                        <td> <input disabled style="height: 25px;" type="checkbox" class="form-check-input">  </td>
+                        <td> <button type="button"   class="btn btn-default p-0" ><i style="height: 25px;"  class="fas pt-2 text-danger fa-trash-alt"></i></button>  </td>
+                    </tr>
+
+                    
+                
+                </tbody>
+
+            </table>
+
+            <button type="button" onclick="Validar();" class="btn btn-primary shadow border mt-3 float-right">Guardar estado</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{% static 'core/api/Administrador/estados.js' %}"></script>
+
+
+{% endblock %}

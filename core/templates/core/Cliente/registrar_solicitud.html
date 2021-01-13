@@ -1,0 +1,173 @@
+{% extends 'core/BaseCliente.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    @keyframes latidos {
+        from { transform: none; }
+        1% { transform: scale(1.1); }
+        to { transform: none; }
+    }
+
+    .latidos{
+        animation: latidos .9s infinite;
+    }
+</style>
+
+<div class="col-xl-12 col-lg-12">
+
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">CREAR TICKET</h6>
+        </div>
+        <div class="card-body">
+            
+                <form action="" id="RegistrarSolicitud" onsubmit="RegistrarSolicitud(event)">
+
+                    <div class="row ">
+
+                        <div class="col-12 text-left mt-1">
+         
+                            <div id="Noti">
+                              
+                                <button type="button"  onclick="AbrirS();" data-toggle="modal" data-target="#Sugerencias" class="float-right font-weight-bold btn btn-light border-warning latidos"> <i style="font-size: 36px;" id="campana" class="fas fa-bell text-warning  "></i>   </button>
+                                <span class="float-right text-primary font-weight-bold pr-3" > </span>
+                            </div>
+                           
+                         
+                            <div class="modal fade" id="Sugerencias" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLongTitle">Sugerencias </h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <h6>Soluciones relacionadas con tu busqueda.</h6>
+
+                                        <div id="contS" class="mt-2">
+
+                                        </div>
+                                      
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                     
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                           
+                            <h5>CREACIÓN TICKET SOPORTE.</h5>
+                            <span>Campos obligatorios <span class="text-danger mt-2">*</span> </span>
+                            <hr>
+                          
+
+                        </div>
+
+
+                        <div class="col-12 col-lg-6 ">
+                            <label>Fecha <span class="text-danger"> *</span> </label>
+                           <input  type="date" disabled class="form-control "  id="FECHA">
+
+                        </div>
+
+                        <div class="col-12 col-lg-6 ">
+
+                       
+ 
+                        </div>
+
+                        <div class="col-12 col-lg-6 mt-3">
+                            <label>Contrato activo <span class="text-danger"> *</span> </label>
+                            <select onfocus="this.selectedIndex=0;"   onchange="change()" id="NUMERO_CONTRATO" class="form-control"  
+                                required>
+                                <option value="" hidden>Seleccione contrato activo</option>
+                            
+                            </select>
+
+                        </div>
+                      
+
+                        <div class="col-12 col-lg-6 mt-3">
+                            <label>Concepto problema <span class="text-danger"> *</span> </label>
+                            <select id="tipo_problema" class=" form-control "  
+                              required>
+                                <option value="" hidden>Seleccione concepto problema</option>
+                                
+                            </select>
+
+                        </div>
+
+                        <div class="col-12 col-lg-6 mt-3">
+                            <label>Nivel urgencia <span class="text-danger"> *</span> </label>
+                            <select  id="urgencia" class=" form-control" required>
+                                <option value="" hidden>Seleccione nivel de urgencia</option>
+                                <option value="Alto">Alto</option>
+                                <option value="Medio">Medio</option>
+                                <option value="Bajo">Bajo</option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-12 col-lg-6 mt-3">
+                            <label>Asunto Problema <span class="text-danger"> *</span> </label>
+                            <input id="DESCRIPCION" class=" form-control"
+                            placeholder="Ingrese asunto"  type="text" required>
+
+                        </div>
+
+                       
+
+                        <div class="col-12 col-lg-6 mt-3">
+
+                            <label>Descrición problema <span class="text-danger"> *</span> </label>
+                            <textarea id="COMENTARIO" class="form-control"  rows="2"></textarea>
+
+                        </div>
+
+                        <div class="col-12 col-lg-12 mt-1">
+                            <br>
+                            <label for="file">Seleccione adjunto <span class="text-danger"> *</span></label>
+                            <input type="file" class="form-control-file"  id="files" name="files" size="1" multiple  required>
+                          </div>
+                     
+
+                        <div class="col-12 mt-3">
+                            <hr>
+
+                        </div>
+
+                        <div class="col-12 text-right mt-1">
+
+                            <div id="alertHoras" class="alert alert-danger border-danger" role="alert">
+                                
+                            </div>
+                            <div id="informe" class="alert alert-success border-success" role="alert">
+                                
+                            </div>
+                            <button id="crear" type="submit" class="btn btn-primary  font-weight-bold" type="button" >CREAR SOLICITUD</button>
+                            <button id="load" disabled  class="btn btn-primary  font-weight-bold" type="button" ><span  class="spinner-border  "></span></button>
+                           
+                                               
+                        </div>
+
+                    </div>
+
+                </form>
+         
+        </div>
+    </div>
+
+</div>
+
+
+<script src="{% static 'core/api/Cliente/solicitud.js' %}" ></script>
+
+{% endblock %}

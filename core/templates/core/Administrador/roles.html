@@ -1,0 +1,64 @@
+{% extends 'core/BaseAdministrador.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="col-xl-6 col-lg-12">
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">ROLES ESCALABLES</h6>
+            
+        </div>
+
+        <div class="card-body">
+
+            
+
+                <form action="" onsubmit="GuardarRol(event);" >
+
+                    <div class="row">
+
+                        <div class="col-8">
+                            <input type="text" id="NOMBRE_ROL" class="form-control" required>
+                        </div>
+        
+                        <div class="col-4">
+                            <button  type="submit" class="btn btn-primary w-100 shadow border  " >AGREGAR </button>
+                        </div>
+
+                    </div>
+                
+                </form>
+
+
+            <table id="TablaRoles" class="table border table-striped mt-3 text-center ">
+
+                <thead>
+
+                  <tr>
+                    <th scope="col">Código Rol</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Opción</th>
+                  </tr>
+
+                </thead>
+
+                <tbody>
+
+                   
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'core/api/Administrador/roles.js' %}"></script>
+
+
+{% endblock %}

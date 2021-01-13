@@ -1,0 +1,194 @@
+{% extends 'core/BaseAdministrador.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="col-xl-12 col-lg-12">
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">REGISTRAR CONTRATO</h6>
+            <div class="dropdown no-arrow">
+
+
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <form id="RegistrarFormulario" onsubmit="RegistrarContrato(event)">
+
+                <div class="row ">
+
+                    <div class="col-12  text-left mt-1">
+
+                        <h5>CREACION DE CONTRATO PARA WEB DE SOPORTE</h5>
+                        <span>Campos obligatorios <span class="text-danger mt-2"> *</span> </span>
+                        <hr>
+
+                    </div>
+
+
+                    <div class="col-10 col-lg-3 ">
+                        <label for="">Numero Contrato <span class="text-danger"> *</span> </label>
+                        <select id="NUMERO_CONTRATO_SAP" class=" form-control form-control-lg border-primary "
+                            required>
+                            <option value="" hidden>Seleccione Numero</option>
+                           
+                        </select>
+                     
+
+                    </div>
+
+                    <div class="col-2 col-lg-2 mt-4 pt-3">
+                        <a onclick="ListarDatosSAP()"  class="btn btn-primary btn-sm border shadow" type="button"><i class=" pt-1 fas fa-redo-alt"></i></a></a> 
+
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                     
+
+                    </div>
+
+                    
+                    <div class="col-12 col-lg-2 mt-3 ">
+
+                        <label for="">Horas<span class="text-danger"> *</span> </label>
+                        <input  id="HORAS" class=" form-control form-control-lg " placeholder="0" type="number" required>
+
+                    </div>
+
+     
+                    <div class="col-12 col-lg-5 mt-3">
+
+                        <label for="">Nombre de cliente <span class="text-danger"> *</span> </label>
+                        <select  id="NOMBRE_CLIENTE" class=" form-control form-control-lg "
+                            required>
+                            <option value="" hidden>Seleccione nombre cliente</option>
+                            
+                        </select>
+
+                    </div>
+
+                    <div class="col-12 col-lg-5 mt-3">
+                        <label for="">Persona contacto <span class="text-danger"> *</span> </label>
+                        <select  id="PERSONA_CONTACTO" class=" form-control form-control-lg "
+                            required>
+                            <option value="" hidden>Seleccione Persona contacto</option>
+                           
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="col-12 col-lg-2 mt-3">
+                        <label for="">Nombre contrato<span class="text-danger"> *</span> </label>
+                        <input  id="NOMBRE_CONTRATO" class=" form-control form-control-lg "
+                            placeholder="Nombre contrato" type="text" required>
+
+                    </div>
+
+                   
+
+                    <div class="col-12 col-lg-5 mt-3">
+                        <label for="">Fecha inicio contrato <span class="text-danger"> *</span> </label>
+                        <input id="FECHA_INICIO_CONTRATO" class=" form-control form-control-lg "
+                            type="date" required>
+
+                    </div>
+
+                    <div class="col-12 col-lg-5 mt-3">
+                        <label for="">Fecha fin contrato <span class="text-danger"> *</span> </label>
+                        <input  id="FECHA_FIN_CONTRATO" class=" form-control form-control-lg "
+                            placeholder="Fin contrato" type="date" required>
+
+                    </div>
+
+                    
+                    <div class="col-12 col-lg-4 mt-3">
+
+                        <label for="">Tipo contrato <span class="text-danger"> *</span> </label>
+                        <select  id="TIPO_CONTRATO" class=" form-control form-control-lg "
+                            required>
+                            <option value="" hidden>Seleccione Tipo contrato</option>
+                            <option value="Soporte" >Soporte</option>
+                            <option value="Mejora" >Mejora</option>
+                            <option value="PaC" >PaC</option>
+                            <option value="PaD" >PaD</option>
+                            <option value="Keyrem" >Keyrem</option>
+                            
+                        </select>
+
+                    </div>
+
+                     
+                    <div class="col-12 col-lg-4 mt-3">
+
+                        <label for="">Tipo Periodo <span class="text-danger"> *</span> </label>
+                        <select  id="TIPO_PERIODO" class=" form-control form-control-lg "
+                            required>
+                            <option value="" hidden>Seleccione Tipo Periodo</option>
+                            <option value="1" >Mensual</option>
+                            <option value="2" >Anual</option>
+                            
+                        </select>
+
+                    </div>
+
+                    <div class="col-12 col-lg-4 mt-3">
+
+                        <label for="">Estado<span class="text-danger"> *</span> </label>
+                        <select  id="ESTADO" class=" form-control form-control-lg " required>
+                            <option value="" hidden>Seleccione estado</option>
+                            <option value="T">Cancelado</option>
+                            <option value="A">Autorizado</option>
+                            <option value="F">Bloqueado</option>
+                            <option value="D">Borrador</option>
+                            
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="col-12 col-lg-6 mt-3">
+                        <label for="">Descripción <span class="text-danger"></span> </label>
+                        <textarea class=" form-control " id="DESCRIPCION" rows="3" cols="50"> </textarea>
+
+                    </div>
+
+                    <div class="col-12 col-lg-6 mt-3">
+                        
+                        <label for="file"> <span class="text-danger"> </span></label>
+                        <input type="file" class="form-control-file mt-5"  id="files" name="files" size="1" multiple  >
+
+                    </div>
+
+            
+                    <div class="col-12 mt-2 ">
+                      <hr class="w-100" >
+                    </div>
+
+
+                    <div class="col-12 text-right">
+
+                        <button type="submit" class="btn btn-primary font-weight-bold"
+                            type="button">REGISTRAR</button>
+
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="{% static 'core/api/Administrador/contrato.js' %}"></script>
+
+{% endblock %}

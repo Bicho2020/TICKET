@@ -1,0 +1,165 @@
+{% extends 'core/BaseAdministrador.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="col-xl-12 col-lg-12">
+
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">BASE DE DATOS DE SOLUCIONES</h6>
+            <div class="dropdown no-arrow">
+
+
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <form id="RegistrarFormulario" onsubmit="GuardarEstado(event)">
+
+                <div class="row">
+
+                    <div class="col-2 mt-3">
+
+                        <span>Estado</span>
+
+                        <select  id="ESTADO" class=" mt-2 form-control " placeholder="Ingrese rol" required>
+
+                            <option value="" hidden>Seleccione categoria</option>
+                            <option value="-1">Publicar</option>
+                            <option value="-2">Interno</option>
+                            <option value="-3">Revisar</option>
+
+                    
+                        </select>
+    
+                    </div>
+
+                    <div class="col-10 mt-3">
+
+                    </div>
+
+                    <div class="col-6 mt-3">
+                        <span>Solución</span>
+                        <input id="SOLUCION" class=" mt-2 form-control " placeholder="Ingrese solucion" name="correo" type="text" required>
+    
+                    </div>
+
+                    <div class="col-6 mt-3">
+                        <span>Asunto</span>
+                        <input id="ASUNTO" class=" mt-2 form-control " placeholder="Ingrese asunto" name="correo" type="text" required>
+    
+                    </div>
+
+                    <div class="col-6 mt-3">
+                        <span>Problema</span>
+                        <input id="PROBLEMA" class=" mt-2 form-control " placeholder="Ingrese solucion" name="correo" type="text" required>
+    
+                    </div>
+
+                    <div class="col-6 mt-3">
+
+                        <span>Categoria SAP</span>
+
+                        <select  id="CATEGORIA_SAP" class=" mt-2 form-control " placeholder="Ingrese rol" required>
+
+                            <option value="" hidden>Seleccione categoria</option>
+                            <option value="000">No Aplica</option>
+                            <option value="001">Gestión</option>
+                            <option value="002">Finanzas</option>
+                            <option value="003">CRM</option>
+                            <option value="004">Oportunidades</option>
+                            <option value="005">Ventas</option>
+                            <option value="006">Compras</option>
+                            <option value="007">Socios de Negocios</option>
+                            <option value="008">Gestión de Bancos</option>
+                            <option value="009">Inventario</option>
+                            <option value="010">Recursos</option>
+                            <option value="011">Producción</option>
+                            <option value="012">MRP</option>
+                            <option value="013">Servicio</option>
+                            <option value="014">Recursos Humanos</option>
+                            <option value="015">Informes</option>
+                            <option value="016">Diseño de Impresión</option>
+                            <option value="017">Facturación Electronica</option>
+                 
+                        </select>
+    
+                    </div>
+
+                    <div class="col-12 mt-3" > 
+                        <span>Comentario</span>
+                        <textarea class=" form-control mt-2 " id="COMENTARIO" rows="3" cols="50" required> </textarea>
+                    </div>
+            
+                    <div class="col-12 mt-2 ">
+                      <hr class="w-100" >
+                    </div>
+
+
+                    <div class="col-12 text-right">
+
+                        <button type="submit" class="btn btn-primary font-weight-bold"  type="button">REGISTRAR SOLUCIÓN</button>
+
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-12 col-lg-12">
+    
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">LISTADO  DE SOLUCIONES</h6>
+            <div class="dropdown no-arrow">
+
+
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table id="TablaSoluciones" style="font-size: 13px;" class="table display border table-striped  text-center ">
+
+                    <thead>
+    
+                      <tr>
+
+                        <th scope="col">Asunto</th>
+                        <th scope="col">Solución</th>
+                        <th scope="col">Problema</th>
+                        <th scope="col">Comentario</th>
+                        <th scope="col">Categoria</th>
+                        <th  scope="col">Status</th>
+
+                      </tr>
+    
+                    </thead>
+    
+                    <tbody>
+
+                    </tbody>
+    
+                </table>
+
+            </div>
+
+ 
+
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'core/api/Administrador/soluciones.js' %}"></script>
+
+{% endblock %}

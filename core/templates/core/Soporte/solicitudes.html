@@ -1,0 +1,87 @@
+{% extends 'core/BaseSoporte.html' %}
+
+{% load static %}
+{% block content %}
+
+    <div class="col-xl-12 col-lg-12">
+
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">MIS SOLICITUDES</h6>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-12 col-lg-7 ">
+                        <div class="row pt-2">
+                            <div class="col-6 col-lg-3">
+                                <span >Total Nuevos : <span id="TN" class="text-success font-weight-bold" > 0 </span>  </span> 
+                            </div>
+                            <div class="col-6 col-lg-3">
+                                <span ></span>Total Revisión: <span id="TRV" class="text-danger font-weight-bold " >0</span> </span>   
+                            </div>
+                            <div class="col-6 col-lg-3">
+                                <span >Total Escalado: <span id="TE" class="text-primary font-weight-bold  " >0</span> </span>  
+                            </div>
+                            <div class="col-6 col-lg-3">
+                                <span >Total Resolución: <span id="TRS" class="text-warning font-weight-bold  " >0</span> </span>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    
+        
+                    <div class="col-12 col-lg-5">
+                        <select class="form-control float-right w-100" hidden onchange="Filtro();" id="filtro">
+                            <option hidden>Filtrar</option>
+                            <option value="0">Fecha Ascedente</option>
+                            <option value="1">Fecha Desendente</option>
+                            <option value="1">Ticket creado</option>
+                            <option value="03E">Revisión de incidencia</option>
+                            <option value="03A">Análisis en ejecución</option>
+                            <option value="4">Proceso de verificación</option>
+                            <option value="5">Envío resolución Cliente</option>
+                            <option value="6">Ticket Cerrado</option>
+                            <option value="NIVEL_URGENCIA">Alto</option>
+                            <option value="NIVEL_URGENCIA">Medio</option>
+                            <option value="NIVEL_URGENCIA">Bajo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-responsive mt-4">
+                    <table id="TablaSolicitudes"  style="font-size: 11px; width: 100%;"   class="mt-3 compact w-100 text-center table   bg-white display">
+                        <thead>
+                            <tr>
+                                <th style="width: 3px;" scope="col">Detalle</th>
+                                <th scope="col" style="width: 47px;">Nº Ticket</th>
+                                <th scope="col" style="width: 100px;">Cliente</th>
+                                <th scope="col" style="width: 48px;">Fecha</th>
+                                <th scope="col" style="width: 48px;">Hora</th>
+                                <th scope="col" style="width: 24px;">Urgencia</th>
+                                <th scope="col" style="width: 150px;">Problema</th>
+                                <th scope="col" style="width: 180px;">Comentario</th>
+                                <th scope="col" class="CL"  style="width: 20px;">Adjunto</th>
+                                <th scope="col" class="CL" style="width: 20px;" >Mensajes</th>
+                                <th id="etd" class="CL"  scope="col">Estado</th>
+                                <th id="rsc" class="CL"  style="width: 10px;" scope="col">Resolucion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+        
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+    <script src="{% static 'core/api/Soporte/solicitudes.js' %}" ></script>
+
+{% endblock %}

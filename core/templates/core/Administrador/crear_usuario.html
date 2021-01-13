@@ -1,0 +1,115 @@
+{% extends 'core/BaseAdministrador.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="col-xl-12 col-lg-12">
+    <div class="card shadow mb-4">
+  
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">REGISTRAR USUARIO</h6>
+        <div class="dropdown no-arrow">
+         
+          
+        </div>
+      </div>
+ 
+      <div class="card-body">
+       
+        <form action="" id="RegistrarFormulario" onsubmit="RegistrarUsuario(event)">
+
+            <div class="row ">
+
+                <div class="col-12 text-left mt-3">
+
+                    <h5>CREACION DE USUARIO PARA WEB DE SOPORTE</h5>
+                    <span>Campos obligatorios <span class="text-danger mt-2">*</span> </span>
+                    <hr>
+
+                </div>
+
+                <div class="col-6 mt-3">
+
+                    <label for="">Nombre de cliente <span class="text-danger"> *</span> </label>
+                    <select  id="NOMBRE_CLIENTE" class=" form-control form-control-lg "
+                        required>
+                        <option value="" hidden>Seleccione nombre cliente</option>
+                        
+                    </select>
+
+                </div>
+
+                <div class="col-6 mt-3">
+                    <label for="">Persona contacto <span class="text-danger"> *</span> </label>
+                    <select  id="PERSONA_CONTACTO" class=" form-control form-control-lg "
+                        required>
+                        <option value="" hidden>Seleccione Persona contacto</option>
+                       
+                    </select>
+
+                </div>
+
+
+                <div class="col-6 mt-3">
+
+                    <input id="correo" class=" form-control form-control-lg"
+                        placeholder="Ingrese correo" name="correo" type="email" required>
+
+                </div>
+
+                <div class="col-6 mt-3">
+
+                    <input id="telefono" class=" form-control form-control-lg"
+                        placeholder="Ingrese telefono" name="telefono" type="number" required>
+
+                </div>
+
+                <div class="col-6 mt-3">
+
+                    <input  id="passwd" class=" form-control form-control-lg"
+                        placeholder="Ingrese contraseña" name="telefono" type="password" required>
+
+                </div>
+
+                <div class="col-6 mt-3">
+
+                    <select  id="rol" class=" form-control form-control-lg"
+                        placeholder="Ingrese rol" name="persona_contacto" required>
+                    <option value=" 0" hidden>Seleccione rol</option>
+                    <optgroup label="Roles">
+                        <option value="1">Administrador</option>
+                        <option value="2">Soporte</option>
+                        <option value="3">Cliente</option>
+                    </optgroup>
+                    
+                    </select>
+
+                </div>
+
+                <div class="col-12 mt-3">
+                    <hr>
+
+                </div>
+
+
+
+                <div class="col-12 text-right mt-1">
+
+                    <button type="submit" class="btn btn-primary btn-lg font-weight-bold"
+                        type="button">REGISTRAR</button>
+
+                </div>
+
+            </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+<script src="{% static 'core/api/Administrador/usuario.js' %}"></script>
+
+{% endblock %}

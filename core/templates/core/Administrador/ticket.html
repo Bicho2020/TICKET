@@ -1,0 +1,43 @@
+{% extends 'core/BaseAdministrador.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-xl-12 col-lg-12">
+
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">SOLICITUDES TICKET</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table style="font-size: 11px;"  class="mt-3 text-center table border table-bordered bg-white display " style="border-radius: 14px;" id="TablaSolicitudes"  >
+        
+                    <thead >
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Urgencia</th>
+                            <th scope="col">Problema</th>
+                            <th scope="col">Comentario</th>
+                            <th scope="col">Adjunto</th>
+                            <th scope="col">Asignar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                    
+                    </tbody>
+    
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="{% static 'core/api/Administrador/ticket.js' %}"></script>
+
+{% endblock %}

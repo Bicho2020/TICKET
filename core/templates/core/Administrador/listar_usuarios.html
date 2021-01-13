@@ -1,0 +1,37 @@
+{% extends 'core/BaseAdministrador.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-xl-12 col-lg-12">
+
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">LISTA DE USUARIOS</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table text-center" id="ListarUsuarios" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ESTADO</th>
+                            <th>NOMBRE</th>
+                            <th>CORREO</th>
+                            <th>TELEFONO</th>
+                            <th>ROL</th>
+                            <th>MODIFICAR</th>
+                            <th>CAMBIAR ESTADO</th>
+                        </tr>
+                    </thead>
+                    
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="{% static 'core/api/Administrador/modificarusuario.js' %}"></script>
+
+{% endblock %}
